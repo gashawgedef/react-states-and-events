@@ -9,9 +9,11 @@ function Gashity() {
 
   const [step,setStep]=useState(1)
   function handlePrevious() {
-    alert("Previous");
+    if(step>1)
+    setStep(step-1)
   }
   function handleNext() {
+    if(step<3)
     setStep(step+1)
   }
 
