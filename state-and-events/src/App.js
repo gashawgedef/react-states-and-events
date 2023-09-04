@@ -7,8 +7,8 @@ import Gashity from './Gashity';
 function App() {
   return (
     <div className="App">
-      <Events/>
-      <Example/>
+      {/* <Events/> */}
+      {/* <Example/> */}
       <Gashity/>
     </div>
   );
