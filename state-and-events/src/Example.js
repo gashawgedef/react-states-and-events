@@ -6,26 +6,35 @@ const message=[
   "Invest your new income"
 ]
 export class Example extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       step:1
+    }
+  }
+  
 
   render() {
-    const step=0;
     function handlePrevious(){
       alert("Previous")
     }
     function handleNext(){
-      alert("Next")
+      this.setState({
+        count: this.state.step + 1,
+      });
     }
     return (
       <div className='steps'>
         <div className='numbers'>
-          <div className={`${step>=1?"active":""}`}>1</div>
-          <div className={`${step>=2?"active":""}`}>2</div>
-          <div className={`${step>=3?"active":""}`}>3</div>
+          <div className={`${this.state.step>=1?"active":""}`}>1</div>
+          <div className={`${this.state.step>=2?"active":""}`}>2</div>
+          <div className={`${this.state.step>=3?"active":""}`}>3</div>
         </div>
-        <p className='message'>Step {step}:{message[step-1]}</p>
+        <p className='message'>Step {this.state.step}:{message[this.state.step-1]}</p>
         <div className='buttons'>
           <button style={{backgroundColor:'#7950f2',color:'#fff'}} onClick={handlePrevious}>Previous</button>
-          <button style={{backgroundColor:'#7950f2',color:'#fff'}} onClick={handleNext}>Next</button>
+          <button style={{backgroundColor:'#7950f2',color:'#fff'}} onClick={this.handleNext}>Next</button>
         </div>
 
       </div>
